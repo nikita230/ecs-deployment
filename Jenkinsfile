@@ -12,9 +12,20 @@ pipeline {
 
         stage('Build') {
            steps {
-              sh 'docker build -t python-app:v1 .'
+              sh 'docker build -t python-app:${env.BUILD_NUMBER} .'
            }
         }
+
+        stage('Push to ECR'){
+            steps {
+                sh ' aws ecr get-login-password --region eu-north-q | docker login --username AWS --password-stdin 921500610579.dkr.ecr.eu-north-1.amazonaws.com/python'
+            }
+        }
+
+
+
+
+        
     }
 }
 
