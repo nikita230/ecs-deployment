@@ -25,7 +25,7 @@ pipeline {
                 {
                 sh " aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 921500610579.dkr.ecr.eu-north-1.amazonaws.com/python"
                 sh "docker tag python 921500610579.dkr.ecr.eu-north-1.amazonaws.com/python:${env.BUILD_NUMBER}"
-                sh " docker push 921500610579.dkr.ecr.eu-north-1.amazonaws.com/python"
+                sh " docker push 921500610579.dkr.ecr.eu-north-1.amazonaws.com/python:${env.BUILD_NUMBER}"
                 }
                 }
         }
