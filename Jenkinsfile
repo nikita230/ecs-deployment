@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build') {
            steps {
-              sh "docker build -t python-app:${env.BUILD_NUMBER} ."
+              sh "docker build -t python-app ."
            }
         }
 
